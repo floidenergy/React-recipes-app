@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    font-size: 1rem;
+    width: 100vw;
+    height: 40px;
+    padding: 0 25px;
+}
+
+header > form {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    gap: 10px;
+}
+
+header > form > input[type='text']{
+    border-radius: 3px;
+    padding: 3px;
+    width: 30%;
+    min-width: 200px;
+    background-color: #FBFFF3;
+    border: 1px solid #a3c958;
+}
+::placeholder{
+    font-family: 'poppins';
+    font-size: 1rem;
+}
+
+header > form > input.btn{
+    padding: 4px 10px;
+    /* border: none; */
+    border-radius: 4px;
+    color: #F1F7ED;
+}
+
+header > form > input.btn.main-btn{
+    background-color: #243E36;
+    border: 1px solid #72857f;
+}
+
+header > form > input.btn.secondary-btn{
+    background-color: #7CA982;
+    border: 1px solid #72857f;
+}
