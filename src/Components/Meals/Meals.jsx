@@ -5,6 +5,22 @@ import MealCard from './MealCard';
 
 import {AiOutlineLike} from 'react-icons/ai'
 
+const NoMeals = () => {
+    return <div className="noMeals"
+        style={{
+            fontSize: '3rem',
+            fontWeight: '600',
+            width: '100vw',
+            height: '100vh',
+            textAlign: "center",
+            boxSizing: 'border-box',
+            paddingTop: "calc(100vh/2)"
+        }}
+    >
+        <p style={{transform: "translateY(-100%)", color: "#C6C6C6"}}>No Meals Found</p>
+    </div>
+}
+
 const Meals = () =>{
     const {Meals, isLoading} = useContext(GlobalContext);
 
@@ -19,12 +35,14 @@ const Meals = () =>{
             margin: '10px'
 
         }}>
-            {isLoading ? console.log('loading')
+            {/* {isLoading ? <NoMeals />
                 : (!Meals ? <p>no meals</p>
-                    : Meals.map(m => {
-                        return <MealCard key={m.idMeal} meal={m}/>
-                    }))
-            }
+                    : Meals.map(m =>  <MealCard key={m.idMeal} meal={m}/>)
+                )
+            } */}
+
+            {!Meals ? <NoMeals /> : 
+            Meals.map(m => <MealCard key={m.idMeal} meal={m} />)}
         </section>
     )
 }

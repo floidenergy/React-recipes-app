@@ -6,24 +6,27 @@ import './SearchBar.css'
 
 const SearchComp = () => {
 
-
-    Math.random()
-    const [SearchValue, setSearchValue] = useState('')
-    
-    const {setSearchQuery} = useContext(GlobalContext);
+    const [Text, setText] = useState('')
+    const {setSearchTerm, fetchRandomMeal} = useContext(GlobalContext);
 
     return (
         <header>
-            <form action='post'>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                if(Text){
+                    setSearchTerm(Text);
+                    setText("")
+                }
+            }}>
                 <input type="text" onChange={(e) => {
                     e.preventDefault();
-                    setSearchValue(e.target.value);
-                }} name="SearchBar" id="SearchBar" placeholder='Type Your Favorite Meal' />
-                <input type="submit" onClick={(e)=>{
-                    e.preventDefault();
-                    setSearchQuery(SearchValue);
-                }} value="Search" className='btn main-btn' />
-                <input type="button" value="Feel Lucky" className='btn secondary-btn'/>
+                    setText(e.target.value);
+                }}  name="SearchBar" id="SearchBar" placeholder='Type Your Favorite Meal' />
+                <input type="submit" value="Search" className='btn main-btn' />
+                <input type="button" onClick={()=>{
+                    setSearchTerm("");
+                    fetchRandomMeal();
+                }} value="Feel Lucky" className='btn secondary-btn'/>
             </form>
         </header>
     );
