@@ -10,7 +10,7 @@ const App = ({children}) => {
     const [Meals, setMeals] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
-    // const [FavMeals, setFavMeals] = useState();
+    const [isShowModal, setIsShowModal] = useState(false)
 
     async function fetchMeals(endPoint){
         setIsLoading(true);
@@ -41,7 +41,7 @@ const App = ({children}) => {
     }, [searchTerm]);
 
     return (
-        <GlobalContext.Provider value={{Meals, isLoading, setSearchTerm, fetchRandomMeal}}>
+        <GlobalContext.Provider value={{Meals, isLoading, setSearchTerm, fetchRandomMeal, isShowModal}}>
             {children}
         </GlobalContext.Provider>
     );

@@ -1,0 +1,20 @@
+.Modal {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+
+}
+
+.Modal > article.modal-article{
+    background-color: white;
+    width: 70vw;
+    height: 75vh;
+    border-radius: 5px;
+    overflow-y: scroll;
+}

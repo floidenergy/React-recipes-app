@@ -6,6 +6,9 @@ import App from './app'
 import Meals from './Components/Meals/Meals'
 import SearchComp from './Components/SearchBar/SearchBar'
 import FavMealBar from './Components/FavMealBar/FavMealBar'
+import Modal from './Components/modal/Modal'
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -13,6 +16,7 @@ root.render(
         <App>
             <SearchComp />
             <FavMealBar />
+            <Modal />
             <Meals />
         </App>
     </React.StrictMode>
