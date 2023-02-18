@@ -10,7 +10,8 @@ const App = ({children}) => {
     const [Meals, setMeals] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
-    const [isShowModal, setIsShowModal] = useState(false)
+    const [isShowModal, setIsShowModal] = useState(false);
+    const [selectedMeal, SetSelectedMeal] = useState(null);
 
     async function fetchMeals(endPoint){
         setIsLoading(true);
@@ -24,9 +25,15 @@ const App = ({children}) => {
         fetchMeals(RandomMealUrl);
     }
 
-    async function getMealByID(id){
-        const meal = await axios("https://www.themealdb.com/api/json/v1/1/lookup.php?i="+id);
-        return meal.data.meals.at(0);
+    const selectMeal = (MealID) =>{
+        const sMeal = Meals.filter(Meal => MealID == Meal.idMeal);
+        SetSelectedMeal(sMeal);
+        setIsShowModal(true);
+    }
+
+    const closeModal = () => {
+        SetSelectedMeal(null);
+        setIsShowModal(false);
     }
 
     // starting fucntion
@@ -41,7 +48,7 @@ const App = ({children}) => {
     }, [searchTerm]);
 
     return (
-        <GlobalContext.Provider value={{Meals, isLoading, setSearchTerm, fetchRandomMeal, isShowModal}}>
+        <GlobalContext.Provider value={{Meals, isLoading, setSearchTerm, fetchRandomMeal, isShowModal, selectedMeal, selectMeal, closeModal}}>
             {children}
         </GlobalContext.Provider>
     );
