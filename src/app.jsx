@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
+import './style.css'
+
 import {GlobalContext} from './context';
 
 const App = ({children}) => {
@@ -26,7 +28,7 @@ const App = ({children}) => {
     }
 
     const selectMeal = (MealID) =>{
-        const sMeal = Meals.filter(Meal => MealID == Meal.idMeal);
+        const sMeal = Meals.filter(Meal => MealID === Meal.idMeal).at(0);
         SetSelectedMeal(sMeal);
         setIsShowModal(true);
     }
