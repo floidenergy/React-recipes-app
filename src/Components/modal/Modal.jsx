@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import {ImCross} from 'react-icons/im'
+import {AiOutlineLike, AiFillLike} from 'react-icons/ai'
 
 import { GlobalContext } from '../../context'
 
@@ -14,10 +15,13 @@ const Modal = () => {
             strInstructions: Instructions,
             strYoutube: youtube,
             strSource: Source,
-            strArea: Area
+            strArea: Area,
+            idMeal
         },
         selectedMeal,
-        closeModal
+        closeModal,
+        AddToFav,
+        favoriteMeals
     } = useContext(GlobalContext)
 
     const Ingredients = []
@@ -43,6 +47,8 @@ const Modal = () => {
                     <img src={image} alt={`${name}'s picture`} />
                 </header>
                 <footer>
+                    <button className="likeButton" onClick={() => AddToFav(idMeal)}>{favoriteMeals.find(m => m.idMeal === idMeal)? <AiFillLike /> : <AiOutlineLike />}</button>
+
                     <p className='name'>{name}</p>
                     <p className="tag">{tag} | {Area}</p>
                     <div className='tutorial'>

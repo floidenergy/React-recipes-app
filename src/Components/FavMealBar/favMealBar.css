@@ -5,5 +5,14 @@
     padding: 10px;
     width: 100vw;
     min-height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.favMealBar > img.MealIcon {
+    width: 7%;
+    border-radius: 100%;
+    border: 5px solid white;
 }
 

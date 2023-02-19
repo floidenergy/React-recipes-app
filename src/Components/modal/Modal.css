@@ -35,6 +35,7 @@
     position: fixed;
     top: 20px;
     right: 20px;
+    cursor: pointer;
 }
 
 .Modal > .modal-article{
@@ -64,6 +65,21 @@
     padding: 0px 15px;
     margin-right: 15px;
     width: inherit;
+}
+
+.Modal > .modal-article > footer > button.likeButton {
+    font-size: 1.6rem;
+    margin: 5px 0 0 0;
+    padding: 0;
+    /* margin: 0; */
+    width: max-content;
+    height: max-content;
+    background-color: transparent;
+    border: none;
+    padding-right: 10px;
+    transition: all 1s;
+    color: #243E36;
+    float: right;
 }
 
 .Modal > .modal-article > footer > p.name{
@@ -116,5 +132,4 @@
 .Modal > .modal-article > footer > p.cuteMessage{
     padding-top: 25px;
     text-align: center;
-    
 }
